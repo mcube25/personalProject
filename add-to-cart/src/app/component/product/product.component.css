@@ -19,3 +19,17 @@ width: 64px;
 .item a:hover{
     color: aqua;
 }
+.card img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale();
+}
+.card{
+    padding: 20px;
+    margin: 50px;
+}
