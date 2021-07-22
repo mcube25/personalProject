@@ -1,11 +1,48 @@
-<div class="container">
-    <div class="card">
-        <h5 class="card-title">My cart</h5>
+<ng-container *ngIf="true">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>sr.No</th>
+                            <th>Product Name</th>
+                            <th>product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>2</td>
+                        <td>Iphone</td>
+                        <td>Some image</td>
+                        <td>this is a branded phone</td>
+                        <td>$0,000</td>
+                        <td>2</td>
+                        <td>$0,000</td>
+                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="center">
-        <img src="" alt="">
-        <h4>Your cart is empty</h4>
-        <h6>Add item to the cart</h6>
-        <button class="btn btn-primary">Shop now</button>
+</ng-container>
+
+
+<ng-container *ngIf="false">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My cart</h5>
+        </div>
+        <div class="center">
+            <img src="" alt="">
+            <h4>Your cart is empty</h4>
+            <h6>Add item to the cart</h6>
+            <button class="btn btn-primary">Shop now</button>
+        </div>
     </div>
-</div>
+</ng-container>
