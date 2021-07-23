@@ -27,7 +27,7 @@
                 <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.title}}</h5>
                 <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{item.description}}</p>
                 <p><strong>Price:</strong>${{item.price}}</p>
-                <button class="btn btn-primary">add to cart</button>
+                <button class="btn btn-primary" (click)="addToCart(item)">add to cart</button>
             </div>
         </ng-container>
     </div>
