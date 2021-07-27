@@ -92,3 +92,15 @@ run(observer,arr,index){
  },2000) 
 }
 }
+const getRandomUsers = co(function* (n) {
+  const fetchRandomUser = yield fetch(`https://randomuser.me/api/?results=${n}`);
+  const data = yield fetchRandomUser.json();
+  return data;
+});
+
+getRandomUser(9).then(randomUsers => {
+  randomUsers.result.forEach(user => {
+      const { gender, email } = user;
+      console.log(`${gender} ${email}`);
+  });
+}).catch(err => console.log(err));
