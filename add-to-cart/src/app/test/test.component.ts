@@ -260,3 +260,52 @@ we can now do this
 console.log(progress.firstName);
 we will get micheal
  */
+
+//angular mock interviews and answers
+
+//what is angular
+/*
+angular is an open source javascript framework
+completely written in typescript
+primarily aimed to build single page applications
+and provide scalability and maintainabilty
+maintained by google
+ */
+
+//what is typescript
+/*
+typescript is a superset of js that offers excellent consistency
+installed as an npm package
+it compiles down to js and can run efficiently in any environment
+ */
+
+//what is data binding and which type of data binding does angular deploy
+
+/**
+ databinding is a phenomenum that allows an internet user to manipulate web page elements 
+ using a web browser
+ It is used in web pages that contain interactive components such as forms, calculators. tutorials and games
+ it makes incremental display of a webpage more convenient
+ any changes made in the ui element ois reflected in the corresponding model state and vice versa
+ Angular uses the two way data binding
+ */
+
+ //what are single page applications 
+
+ /**
+  * single page applications load once and new features are just mere additions to the user interface
+  * it does not load new html pages to display the content, instead it is generated dynamically
+  * they r faster, thus providing a seamless user experience
+  */
+
+ //what are decorators in angular
+
+ /**
+  * they are design patterns or functions that allow a service, directive or filter
+  *  to be modified prior to its usage
+  * Angular supports four types of decorators namely
+  * class 
+  * property
+  * method
+  * parameter
+  */
