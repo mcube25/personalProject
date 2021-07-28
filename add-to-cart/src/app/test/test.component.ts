@@ -58,6 +58,7 @@ setTimeout(() => {
 
 export class TestComponent implements OnInit, OnDestroy {
   intervalSubscription: Subscription;
+  name = "gabigab";
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -411,7 +412,57 @@ it compiles down to js and can run efficiently in any environment
  date: format a date to a specified format
  filter: select a subset of items from an array
  json: format an object to a json string
- 
+ lomitTo: limits an array/string into a specified number of elements/characters
+ lowerCase: format a string to lowercase
+
+ What is view encapsulation in Angular
+ it defines whether the template and styles defined within the component can affect the whole application
+ or vice versa. Angular provides 3 encapsulation strategies, which are
+ Emulated: styles from main html propagated to the component
+ Native: styles from main html do not propagate to the component
+ None: styles from the component propagate back to the main html and thereforeare visible to all components
+ on the page
+
+ What are controllers
+ They control the data of angular applications. They are regular javaScript objects. The ng-controller
+ directive defines the application controller
+
+ What is scope in angular
+ The scope in angular binds the html for example the view, and the javascript(controller)
+ it is an object with the available properties and methods
+ when an controller is made in angular, the scope object is passed as an argument
+
+ What are life cycle hooks in angular
+ in angular, every component has a life cycle. Angular creates and renders this components and also
+ destroys them before removing them from the DOM. This is achieved with the life cycle hooks
+ examples ngOnchange(), ngOnInit(), ngOnDestroy e.t.c
+
+ What is string interpolation in Angular
+ it is a one way data binding technique that outputs the data from the typeScript code to the html view
+ it is denoted using the double curly braces {{data}}
+ it helps display the data from the component to the view
+
+What are template statements
+they are properties ormethods that is used in html to respond to user events
+with template statements, the application can engage users through actions such as displaying dynamic 
+contents or submitting forms 
+
+what is the difference between ahead of time and just in time compilation
+
+AOT: converts your code during the build time before the browser downloads and run the code
+ensures faster rendering to the browser
+JIT: it is a way of compiling computer code to machine code during execution or run time
+known as dynamic compilation
+
+
+Explain the @Component decorator
+it is basically a typescript class that is used to create a component which is decorated with the 
+@Component decorator. Its purpose is to accept a metadata object that provides properties like
+selector
+templateUrl: it points to a html file that defines what is seen in an application
+styleUrl etc
+
+What are services in angular
   */
  //an impure pipe
  @Pipe({
