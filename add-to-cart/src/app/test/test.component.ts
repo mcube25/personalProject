@@ -182,14 +182,39 @@ function hoist(flag) {
 }
 
 it creates the var action at the top of the function block, thereby it is declared at the top
-if the variable is assigned another value or redeclaring it as in the else statement, 
+if the variable is assigned another value or redeclaring it as in the else statement,
 it is going to throw an error in a linter but it works in a browser.
 it has been addressed in es6 with the let and const variable declaration
 they are not hoisted
 they are scoped within the block they are in
 they give more control
 
-5.
+5. whats is the difference between a variable that is null, undefined, or undeclared
 
+null: cont tried = null;
+null has a value and the value is null
+null is a nothing value
+not zero, not an empty string/object/array
+falsy
+its a way of creating a placeholder assignmwent for something that might have other values
+typeof null actually returns an object
+
+ undefined: Means it has been declared but it doesn't have a value or not assigned a value
+ its not neccessarily an error or something. examples are
+ let foo;
+ let bar = {};
+ let baz = ['johnny', 'phil', 'teddy];
+ const try = function() {
+   don't return anything
+ }
+ console.log(foo, bar.name, baz[4], try());
+
+   undeclared: const bar = foo + 2
+   it is basically  trying to use a variable you have not written out.
+   undeclared will usually find you except when assigning a value
+
+6. == vs ===
+== checks for equality
+=== checks for equality and type
 
  */
