@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { interval, Observable, of, Subscription } from "rxjs";
 
@@ -341,4 +341,85 @@ it compiles down to js and can run efficiently in any environment
   * property
   * method
   * parameter
+  
+ what are directives in angular
+ directives are attributes that allow the user to write new html syntax specific to their applications.
+ they execute whenever the angukar compiler finds them in the DOM
+
+ angular supports 3 types of directives
+ *component directives
+ *structural directives
+ attribute directives
+
+ what aot compilations and what are their advantages
+ the ahead of time compiler converts the angular html and typescript code into javascript code
+ during the build phase that is before the browser downloads and run the code
+
+ advantages are
+ faster rendering
+ fewer asyncheronous request
+ smaller angular frameworks download size
+ quick detection of template errors
+ better security
+
+ what are components
+ they are the most basic building blocks in an angular application
+ they are subsets of directives
+ only one component can be istantiated per element in a template
+
+ an angular application consist basically of a root component and it branches out to other components
+ component decorator provides additional metadata
+ components must belong to the Ng module
+ components implements a life cycle hook (ngOnInit)
+
+ what are pipes in angular
+ they are simple functions that are designed to accept an input value, process, and return as an output
+ a transformed valuein a more technical understanding
+
+ dome key features include
+ pipes are defined using the pipe "|" symbol
+ pipes can be chained with other pipes
+ pipes can be provided with arguments using the colon (:) sign.
+
+ what are pure pipes
+ pure pipes use pure functions
+ the pipes do not use any internal state and the output remains the same as long as the parameters passed 
+ stay the same
+ angular calls the pipe only when it detects a change in the parameters being passed
+ a single instance of the pure pipe is used through out all components
+ they have same input parameters
+
+ what are impure pipes
+ for every change detection cycle in angular, an impure pipe is called regardless of the change in the
+ input fields. multiple pipe instances are created for those pipes. inputs passed to this pipes can be mutable
+ By default all pipes are pure. However you can specify impure pipes using the pure property
+
+ what is the pipe transform interface
+ The interface receives an input value and transforms it into the desired format with a transform() method
+ it is typically used to implement custom pipes
+
+ What is NgModule
+ they are containers that reserve a block of code to an application domain or a workflow
+ they take a metadata object that describes how to compile a components template and how to create an
+ injector at runtime
+ it also identifies the modules, components, directives, services, pipes and also ensures that it makes 
+ them public so that external components can use them
+
+ what are filters in angular
+ filters are used to format an expression and present it to the user, they can be used in view templates
+ controllers or services. Some inbuilt filters are
+ date: format a date to a specified format
+ filter: select a subset of items from an array
+ json: format an object to a json string
+ 
   */
+ //an impure pipe
+ @Pipe({
+   name: "temitope",
+   pure:true //false
+ })
+ export class typeDemo implements PipeTransform{
+   transform(value: any, ...args: any[]) {
+     throw new Error('Method not implemented.');
+   }
+}

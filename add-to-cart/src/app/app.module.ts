@@ -9,6 +9,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { ProductComponent } from './component/product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { Test2Component } from './test2/test2.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TestComponent } from './test/test.component';
     HeaderComponent,
     CartComponent,
     ProductComponent,
-    TestComponent
+    TestComponent,
+    Test2Component
   ],
   imports: [
     BrowserModule,
