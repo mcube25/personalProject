@@ -217,4 +217,46 @@ typeof null actually returns an object
 == checks for equality
 === checks for equality and type
 
+7. what is the use of arrow functions
+so i have the function below
+const progress = {
+  firstName: '',
+  lastName: '',
+  setName: function(name) {
+    let splitName = function(n) {
+      let nameArray = n.split(' ');
+      this.firstName = nameArray[0];
+      this.lastName = nameArray[2];
+    }
+    splitName(name);
+  }
+}
+progress.setName('micheal pep');
+console.log(firstName);
+from the above code we use the this keyword on a function that is not a constructor
+it thereby assigns our variable to the windows object. so if i run the above code as
+console.log(progress.firstName); i will get nothing on the console exxcept if we do 
+
+console.log(windows.firstName);
+lets change the inner function to an arrow function
+
+const progress = {
+  firstName: '',
+  lastName: '',
+  setName: function(name) {
+    let splitName = (n) => {
+      let nameArray = n.split(' ');
+      this.firstName = nameArray[0];
+      this.lastName = nameArray[2];
+    }
+    splitName(name);
+  }
+}
+progress.setName('micheal pep');
+console.log(firstName);
+
+it will now set the this keyword to the property of the progress variable.
+we can now do this
+console.log(progress.firstName);
+we will get micheal
  */
