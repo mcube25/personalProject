@@ -108,6 +108,39 @@ getRandomUser(9).then(randomUsers => {
   });
 }).catch(err => console.log(err));
 
+//to do
+const persons = {
+  name: 'alexa',
+  cars: ['ferrari', 'lambo'],
+  toString: () => {
+      // console.log(`${this.name} has ${this.cars}`);
+      //store the reference of this keyword
+      const that = this;
+      this.cars.forEach((car) => {
+          console.log(`${that.name} has ${car}`);
+      });
+  }
+}
+
+person.toString();
+//the above is ugly code but we are learning
+//the easiest way to fix all of this is
+const personal = {
+  name4: 'alexa',
+  cars: ['ferrari', 'lambo'],
+  toString: function () {
+      // console.log(`${this.name} has ${this.cars}`);
+      //store the reference of this keyword
+      this.cars.forEach((car) => {
+          console.log(`${this.name4} has ${car}`);
+      });
+  }
+}
+
+personal.toString();
+
+//enhanced object properties we have a new syntax for working with objects
+
 /**
  what is event delegation
  Event delegation basically means javascript event listeners fire not only
