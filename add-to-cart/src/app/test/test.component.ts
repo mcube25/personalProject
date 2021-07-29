@@ -463,6 +463,65 @@ templateUrl: it points to a html file that defines what is seen in an applicatio
 styleUrl etc
 
 What are services in angular
+Angular services perform task that are usedby multiple components
+A component can delegate tasks like fetching data from the server, validating user input, or logging directly
+to the console to the service
+it can be written once and injected into all into all the components that use that service thus
+avoiding redundant code
+
+What are promises and observables
+Promises emit a single value at a time
+they also execute immediately after they are created and they do not cancel
+they push error to the child promises
+Observables are on executed when subscribed to them using the subscribe() method
+They help perform operations like forEach, filter and retry amongst others
+When the unsubscribe method is called, the listener stops receiving further value
+
+What is ngOnInit and how is it defined
+
+export class TestComponent implements OnInit, OnDestroy {
+  constructor() { }
+//....
+  ngOnInit(): void {
+
+  }
+}
+
+it is a life cycle hook and a callback method that is run by angular to indicate that a component has been
+created
+it takes no parameters and returns a void type
+
+What is ngFor Directive
+
+
+<ul>
+    <li *ngFor = "let item of itemList"></li>
+</ul>
+
+it is used to iterate over an array or an object and create a template for each element
+* "let item" creates a local variable that will be available in the template
+* "of items" indicates that we are iterating over items
+* the * before ngFor creates a parent template
+
+What is Eager and lazy loading 
+
+eager loading is the default module loading strategy. They are loaded before the application starts
+they are typically used for small size application
+
+Lazy loading dynamically loads the feature modules when there is a demand. This makes the application faster
+it is used for bigger applications where all the modules are not required at the start of the application
+
+What type of DOmM does Angular use
+Angular uses a regular DOM which updates the entire tree structure of the html tags until it reaches the data
+to be updated. However to ensure that the speed and performance are not affected,Angular implements change
+detection
+
+How is Dependency injection  achieved in angular
+
+dependencies are objects or services 
+
+
+
   */
  //an impure pipe
  @Pipe({
