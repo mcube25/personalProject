@@ -34,22 +34,110 @@ export class Test2Component implements OnInit {
     Whatever the case maybe we have an observer which can handle multiple values. 
     At the end we might have an endpoint when the observable is done or the end might never occur as in 
     the case of the onClick. If we do complete the observable though, we can call end and execute complete()
-    if the observable provides this on the observer object. Let us take a look at an example in code.
+    if the observable provides this on the observer object. Let us take a look at an example in code in angular component.
+    Let us create a button in our html file
 
-    let button = document.querySelector('button');
-Rx.Observable.fromEvent(button, 'click')
-  .subscribe(value => console.log(value)
-  );
+<button>Click me</button>
 
-
-
-   */
-
-constructor(private route: ActivatedRoute) { }
+then in our ts file, 
+  
+onstructor(private route: ActivatedRoute) { }
 
 ngOnInit(): void {
   this.route.data.subscribe((data)=>{console.log(data);
   })
 }
 
+The subscribe method above is the observer and the function value, is the next() function.
+We can wrap the above function in a variable. In that case it will look like this
+
+```
+var observer = {
+    next: function(data) {
+      console.log(data)
+    },
+    error: function(error){
+     console.log(error) 
+    },
+    complete: function() {
+      console.log("done")
+    }
+  }
+```
+Then the variable can easily be passed to a subscribe method. Example
+
+```
+ngOnInit(): void {
+  
+   this.route.data.subscribe(observer);
+
+  var observer = {
+    next: function(data) {
+      console.log(data)
+    },
+    error: function(error){
+     console.log(error) 
+    },
+    complete: function() {
+      console.log("done")
+    }
+  }
 }
+```
+                              CREATING AN OBSERVABLE FROM SCRATCH
+    To build an observable from scratch, an rxjs method called create() is used. This method creates a new observable that will execute
+    the specified function when an observer subscribes to it. The create() method takes only one argument which is the observer. Let us
+    create an observable using this 
+    We will use reactivex.io to get our observable instance
+
+    ```
+Rx.Observable.create();
+    ```
+
+    NB: Check reactivex.io for documentation
+
+    We will pass an anonymous function to the create() method
+
+    ```
+ Rx.Observable.create((obs) => {
+      obs.next().subscribe(observer)
+    });
+    ```
+
+    This anonymous function takes an argument obs and passes it as an observer to the anonymous function. This is how an observable is 
+    created. The next() method can now be called in the anonymous function because observables know that the observer has the next(),
+    error() and complete() methods. All this methods can be passed into the anonymous function.
+    If an error occurs, the observable is finished. It won't call another next() or complete() method.
+    Justlike with error() method. The complete() completes an observable thereby preventing the call of any other method when implemented.
+   */
+  
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+
+    Rx.Observable.create((obs) => {
+      obs.next().subscribe(observer)
+    });
+    this.route.data.subscribe((data) => {
+      console.log(data);
+    })
+
+    var observer = {
+      next: function (data) {
+        console.log(data)
+      },
+      error: function (error) {
+        console.log(error)
+      },
+      complete: function () {
+        console.log("done")
+      }
+    }
+    this.route.data.subscribe(observer)
+  }
+
+}
+
+
+
