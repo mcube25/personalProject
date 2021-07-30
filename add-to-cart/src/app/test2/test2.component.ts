@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { interval, of } from 'rxjs';
+import { debounceTime, map, mapTo, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-test2',
@@ -110,7 +114,7 @@ Rx.Observable.create();
     If an error occurs, the observable is finished. It won't call another next() or complete() method.
     Justlike with error() method. The complete() completes an observable thereby preventing the call of any other method when implemented.
    */
-  
+
 
   constructor(private route: ActivatedRoute) { }
 
@@ -138,6 +142,112 @@ Rx.Observable.create();
   }
 
 }
+//diff between map and switchMap
+this.route.data.subscribe((data) => {
+  console.log(data);
+}).pipe(
+  debounceTime(2000),
+  switchMap(() => interval(500))
+).setTimeout(() => {
+
+}, timeout);
+function timeout(arg0: () => void, timeout: any) {
+  throw new Error('Function not implemented.');
+}
+
+let a = [2, 3];
+let b = a.map(v => v * 3);
+console.log(b);
+//of gives a stream of data it emits one at a time
+of(3, 4, 4, 5).pipe(
+  map(n => n / 3)
+).subscribe(console.log);
+// if we have an object with a lot of data and we want to stream just 2 or 3
+
+@Injectable({
+  providedIn: 'root',
+})
+
+export class HttpService {
+  constructor(private http: HttpClient) { }
+  getData(id: string) {
+    return this.http.get<string>('http://id.me/data');
+  }
+
+  get(url: string) {
+    return this.http.get(url);
+  }
+}
+
+//use the service
+this.HttpService.get('https://jsonplaceholder.com').pipe(
+  map((res: any) => res.map(data => {
+    return {
+      id: data.id,
+      completed: data.completed
+    }
+  })
+  )
+).subscribe(console.log()
+)
+
+//mapTo is similar to map just that it returns a single value
+of(3, 4, 4, 5).pipe(
+  mapTo('request')
+).subscribe(console.log);
+
+//functional programming
+//functional programming often use pipe and compose functions
+//they are higher order functions
+//a higher order function is any function that takes a function as an argument, returns a function or both
+
+//lets start with compose 
+
+const dreamBig = (db) => { return console.log('hello' + db / 8) }
+const dreamSmall = (ds) => { return console.log('hello' + ds + 6) };
+const dreamLittle = (dl) => { return console.log('hello' + dl * 6); }
+
+const result = dreamBig(dreamSmall(dreamLittle(4)));
+console.log(result);
+//nested functions execute from right to left
+//Ramda.js and lodash libraries both have their own compose and pipe functions
+//lodash calls its pipe flow
+//the reduce function takes a list of values and applies a function
+//to each of those values, accumulating a single result
+//to get the compose order fron right to left as we see with nested functions calls in our example above
+//we need reduceRight() method
+const compose = (...ftn) => val => ftn.reduceRight((prev, fn) => fn(prev), val);
+//the above method uses the currying method. if you don't know about currying i suggest you look here
+//we call or invoke the function immediately
+//we call our 3 functions created above
+//its going to start from the right and terminate at the left
+const composeResult = compose(dreamBig, dreamSmall, dreamLittle)(8)
+console.log(composeResult);
+
+//Pipe
+//if you don't like reading from right to left as done in compose
+//pipes essentially change the order of compose from left to right
+//it is the same but instead of the reduceRight it uses the reduce method
+const pipe = (...ftn) => val => ftn.reduce((prev, fn) => fn(prev), val);
+const pipeResult = pipe(dreamLittle, dreamSmall, dreamBig)(8)
+console.log(pipeResult);
+//u will also often see the functions on a seperate line whether you are using a pipe or compose
+
+const composeResult2 = compose(
+  dreamBig,
+  dreamSmall,
+  dreamLittle
+)(8);
+//the examples we have looked at use a pointer free style and with unary functions we don't see 
+//the parameter passed between each function, only the parameters passed at the end of the compose or
+//pipe function if we are immediately invoking the function.
+
+// Let us take a look at an example where if we have possibly more than one parameter
+//or when not working with a unary function
+
+
+
+
 
 
 

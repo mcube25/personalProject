@@ -518,8 +518,40 @@ detection
 
 How is Dependency injection  achieved in angular
 
-dependencies are objects or services 
+dependencies are objects or services that a component needs to perform functions
+Using Dependency Injection classes can request dependencies from external sources 
+rather than creating them
 
+we can create a service from the angular CLI using the command
+
+```
+ng g s serviceName
+```
+
+it creates the service
+
+```
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+ What are form controls and form groups
+form control is a class that enables validation
+for each input field, an instance of this class is created
+this instances help check the values of the field and see if they are touched, untouched and dirty
+valid, invalid and so on
+
+form group class represents a group of controls
+A form can have multiple control groups
+they also provide validation errors
+
+What is package.json
+package.json is installed by npm when a new workspace is created
+the file includes a super set of packages some of which are require by angular
+it is typically divided into two groups
+* Dependencies: they are essential to run the application
+*DevDependencies: Neccessary to develop applications
 
 
   */
