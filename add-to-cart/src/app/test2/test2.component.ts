@@ -45,7 +45,7 @@ export class Test2Component implements OnInit {
 
 then in our ts file, 
   
-onstructor(private route: ActivatedRoute) { }
+constructor(private route: ActivatedRoute) { }
 
 ngOnInit(): void {
   this.route.data.subscribe((data)=>{console.log(data);
@@ -244,6 +244,65 @@ const composeResult2 = compose(
 
 // Let us take a look at an example where if we have possibly more than one parameter
 //or when not working with a unary function
+
+const divideBy = (divisor, num) => num / divisor;
+//this function requires two parameters, the divisor and the num and it implicitly returns the result
+const pipeResult3 = pipe(
+  dreamBig,
+  dreamSmall,
+  dreamLittle,
+  x => divideBy(7, x)
+)(8);
+console.log(pipeResult3);
+// look at how we provide divideBy using the pipe method
+//all the results gotten from each of the functions is being passed to x
+//then we use an anonymous function and we call divideBy, we provide a number and x goes into the 
+//function.
+// this is how to reduce a function with multiple parameters in a pipe or compose function
+// could we curry the divideby function to get a unary function if we have already hard coded the a
+// number in the compose or method pipe
+const multiplyBy = (multiplier) => (num) => num * multiplier;
+const multiplyBy2 = multiplyBy(2); //partially applied unary function
+//we can now do this
+const pipeResult4 = pipe(
+  dreamBig,
+  dreamSmall,
+  dreamLittle,
+  multiplyBy2
+)(8);
+console.log(pipeResult3);
+console.log(pipeResult4);
+//it will still work like the other unary function
+//let us look at some other examples that are not math functions
+
+const bahrain = "bahrain is a ccountry situated in the eastern part of arabia precisely the middle east"
+//here we are just going to count the words in the paragraph
+//lets define a couple of functions
+const spaceSPlit = (str: string) => str.split(' ');
+const number = (arr: string | any[]) => arr.length;
+// the spaceSplit method is going to look for each space in the paragraph
+//while the function number is going to count how many words we have after splitting the string
+
+const howMany = pipe(
+  spaceSPlit,
+  number
+);
+// if we create a pipe function and apply it on the string it will invoke first the spaceSplit sunction 
+// and then the number function. We don't have to call the function immediately but we can go ahead and log
+//the function
+console.log(howMany(bahrain));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
