@@ -597,3 +597,39 @@ let re = /(\w+)\s(\w+)/
 let str = 'John Smith'
 let newstr = str.replace(re, '$2, $1')
 console.log(newstr)
+//using regular expressions on different line
+let text = 'Some text\nAnd some more\r\nAnd yet\rThis is the end'
+let lines = text.split(/\r\n|\r|\n/)
+console.log(lines);
+//using regular expressions on multiple lines
+let s = 'Please yes\nmake my day!'
+
+s.match(/yes.*day/);
+// Returns null
+
+s.match(/yes[^]*day/);
+// Returns ["yes\nmake my day"]
+
+let str = '#foo#'
+let regex = /foo/y
+
+regex.lastIndex = 1
+regex.test(str)      // true
+regex.lastIndex = 5
+regex.test(str)      // false (lastIndex is taken into account with sticky flag)
+regex.lastIndex  
+
+//compose in rambda.js
+const classyGreeting = (firstName, lastName) => "The name's " 
++ lastName + ", " + firstName + " " + lastName
+const yellGreeting = R.compose(R.toUpper, classyGreeting);
+yellGreeting('James', 'Bond'); //=> "THE NAME'S BOND, JAMES BOND"
+
+R.compose(Math.abs, R.add(1), R.multiply(2))(-4) //=> 7
+//currying in rambda.js
+const addFourNumbers = (a, b, c, d) => a + b + c + d;
+
+const curriedAddFourNumbers = R.curry(addFourNumbers);
+const f = curriedAddFourNumbers(1, 2);
+const g = f(3);
+g(4); //=> 10
