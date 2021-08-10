@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+/**
+ * import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -116,7 +117,8 @@ Rx.Observable.create();
    */
 
 
-  constructor(private route: ActivatedRoute) { }
+  /**
+   * constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -295,6 +297,7 @@ console.log(howMany(bahrain));
 
 
 
+   */
 
 
 
@@ -311,3 +314,5 @@ console.log(howMany(bahrain));
 
 
 
+
+ 

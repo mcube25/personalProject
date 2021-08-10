@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit, Pipe, PipeTransform } from '@angular/core';
+/**
+ * import { Component, OnDestroy, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { interval, Observable, of, Subscription } from "rxjs";
 
@@ -7,8 +8,12 @@ import { interval, Observable, of, Subscription } from "rxjs";
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
+ */
 
-const obj = {
+
+
+/**
+ * const obj = {
   name: 'Muhammad',
   country: 'Nigeria'
 };
@@ -139,6 +144,8 @@ const personal = {
 }
 
 personal.toString();
+ */
+
 
 //enhanced object properties we have a new syntax for working with objects
 
@@ -555,7 +562,8 @@ it is typically divided into two groups
 
 
   */
- //an impure pipe
+ /**
+  * //an impure pipe
  @Pipe({
    name: "temitope",
    pure:true //false
@@ -633,3 +641,4 @@ const curriedAddFourNumbers = R.curry(addFourNumbers);
 const f = curriedAddFourNumbers(1, 2);
 const g = f(3);
 g(4); //=> 10
+  */

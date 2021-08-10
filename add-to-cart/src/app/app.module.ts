@@ -8,8 +8,9 @@ import { HeaderComponent } from './component/header/header.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ProductComponent } from './component/product/product.component';
 import {HttpClientModule} from '@angular/common/http';
-import { TestComponent } from './test/test.component';
-import { Test2Component } from './test2/test2.component';
+//import { TestComponent } from './test/test.component';
+//import { Test2Component } from './test2/test2.component';
+import { FormtestComponent } from './formtest/formtest.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { Test2Component } from './test2/test2.component';
     HeaderComponent,
     CartComponent,
     ProductComponent,
-    TestComponent,
-    Test2Component
+    //TestComponent,
+    //Test2Component,
+    FormtestComponent
   ],
   imports: [
     BrowserModule,
